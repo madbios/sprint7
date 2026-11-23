@@ -59,7 +59,7 @@ func TestCafeCount(t *testing.T) {
 	for _, v := range requests {
 		var got int
 		response := httptest.NewRecorder()
-		req := httptest.NewRequest("GET", fmt.Sprintf("/?city=%s&count=%d", city, v.count), nil)
+		req := httptest.NewRequest("GET", fmt.Sprintf("/?city=%s&count=%d", "tula", v.count), nil)
 		handler.ServeHTTP(response, req)
 		assert.Equal(t, http.StatusOK, response.Code, "count=%d", v.count)
 		body := response.Body.String()
